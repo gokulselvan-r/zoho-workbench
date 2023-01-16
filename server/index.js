@@ -104,6 +104,7 @@ app.get('/auth/logout', (request, response) => {
   var session = getSession(request, response);
   if (session == null) return;
   session = null
+  request.session.destroy()
   // Redirect to app main page
   return response.redirect('/index.html');
 });
